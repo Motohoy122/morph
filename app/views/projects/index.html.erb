@@ -1,0 +1,14 @@
+<br>
+<% @projects.each do |project| %>
+  <h2 class="text-center"><%= project.job_name %></h2>
+  <br />
+  <div class="row">
+    <div class="col-sm-8 col-12">
+      <%= project.user_id %>
+    </div>
+    <div class="col-sm-4 col-12 text-center">
+      <%= link_to 'Button', '#', class: 'btn btn-primary btn-large' %>
+    </div>
+  </div>
+  <br class="clr" />
+<% end %>

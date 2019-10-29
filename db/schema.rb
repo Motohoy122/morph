@@ -10,10 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_005927) do
+ActiveRecord::Schema.define(version: 2019_10_29_014127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "crews", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "color"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_crews_on_user_id"
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "color"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_equipment_on_user_id"
+  end
+
+  create_table "my_groups", force: :cascade do |t|
+    t.integer "task"
+    t.integer "equipment"
+    t.integer "crew"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_my_groups_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "job_name"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.integer "project"
+    t.text "location"
+    t.integer "lot_count"
+    t.integer "task"
+    t.integer "crew"
+    t.integer "equipment"
+    t.integer "my_group"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "color"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

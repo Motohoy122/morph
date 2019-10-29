@@ -68,6 +68,8 @@ end
 
 gem 'devise'
 
+gem 'simple_form'
+
 # For ensuring the ruby code is up to proper standards
 gem 'rubocop', '~> 0.42.0'
 
