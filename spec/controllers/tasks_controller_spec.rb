@@ -33,4 +33,10 @@ RSpec.describe TasksController, type: :controller do
 
     end
   end
+
+  describe "tasks#delete action" do
+    it "should allow task infornmation to be deleted" do
+
+    end
+  end
 end

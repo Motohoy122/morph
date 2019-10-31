@@ -5,7 +5,6 @@ class CreateEquipment < ActiveRecord::Migration[5.2]
       t.text :description
       t.string :color
       t.integer :user_id
-
       t.timestamps
     end
     add_index :equipment, :user_id

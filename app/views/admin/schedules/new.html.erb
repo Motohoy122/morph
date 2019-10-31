@@ -1,0 +1,17 @@
+<br />
+<div class="booyah-box col-10 offset-1">
+  <h1>Add a new schedule</h1>
+  <%= simple_form_for @schedule, url: admin_schedules_path do |f| %>
+    <% options = options_from_collection_for_select(Project.all, 'id', 'job_name') %>
+    <%= f.select :project_id, options, :input_html => { class: "form-control" } %>
+    <br>
+    <br>
+    <%= f.input :location %>
+    <%= f.input :lot_count %>
+    
+    <br />
+    <%= f.submit "Create", class: 'btn btn-primary' %>
+    <br />
+  <% end %>
+  <br />
+</div>
