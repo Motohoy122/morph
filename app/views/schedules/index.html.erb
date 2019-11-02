@@ -1,16 +1,29 @@
 <br />
 
+
+
 <div class="booyah-box col-12">
   <h1 class="text-center">SCHEDULE</h1>
-  <hr />
-
-  <div class="booyah-box col-3 left">
+  <hr />    
     <% @schedules.each do |schedule| %>
-      <h3 class="text-center"><%= schedule.project.job_name %></h3>
-      <h4 class="text-center">Location: <%= schedule.location %></h4>
-      <h4 class="text-center">Lot Count<%= schedule.lot_count %></h4>
+      <div class="row">
+        <div class="booyah-box col-3 left">
+        
+          <h3 class="text-center"><%= schedule.project.job_name %></h3>
+          <h4 class="text-center">Location: <%= schedule.location %></h4>
+          <h4 class="text-center">Lot Count<%= schedule.lot_count %></h4>
+        </div>
+        <div class="booyah-box col-9">
+          <%= week_calendar number_of_weeks: 1 do |date| %>
+            <%= date %>
+          <% end %>
+        </div>
+      </div>
+      <br>
     <% end %>
-  </div>
+
+  
+  
 </div>
 <br>
 <div class="booyah-box col-12">
