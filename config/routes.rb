@@ -5,8 +5,16 @@ Rails.application.routes.draw do
   root "static_pages#index"
   resources :projects, only: [:index, :show]
   resources :schedules, only: [:index, :show]
+  resources :crews, only: [:index, :show]
+  resources :tasks, only: [:index, :show]
+  resources :equipment, only: [:index, :show]
+  resources :my_groups, only: [:index, :show]
   namespace :admin do
     resources :projects, only: [:new, :create, :show]
     resources :schedules, only: [:new, :create, :show]
+    resources :tasks, only: [:new, :create]
+    resources :crews, only: [:new, :create]
+    resources :equipment, only: [:new, :create]
+    resources :my_groups, only: [:new, :create]
   end
 end

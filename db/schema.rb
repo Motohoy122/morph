@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_235232) do
+ActiveRecord::Schema.define(version: 2019_11_07_021209) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_235232) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "crew_id"
     t.index ["user_id"], name: "index_crews_on_user_id"
   end
 
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_235232) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "equipment_id"
     t.index ["user_id"], name: "index_equipment_on_user_id"
   end
 
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_235232) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "my_group_id"
     t.index ["user_id"], name: "index_my_groups_on_user_id"
   end
 
@@ -74,6 +77,8 @@ ActiveRecord::Schema.define(version: 2019_10_30_235232) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "task_id"
+    t.index ["task_id"], name: "index_tasks_on_task_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 

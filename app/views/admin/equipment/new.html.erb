@@ -1,0 +1,12 @@
+<br />
+<div class="booyah-box col-10 offset-1">
+  <h1>Add a new equipment</h1>
+  <%= simple_form_for @equipment, url: admin_equipment_index_path(@user) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <br>
+    <%= f.submit "Add the Equipment" %>
+    <br />
+    <br />
+  <% end %>
+</div>
