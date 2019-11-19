@@ -8,8 +8,9 @@
         <div class="booyah-box col-3 left">
         
           <h3 class="text-center"><%= schedule.project.job_name %></h3>
+
           <h4 class="text-center">Location: <%= schedule.location %></h4>
-          <h4 class="text-center">Lot Count<%= schedule.lot_count %></h4>
+          <h4 class="text-center">Lot Count: <%= schedule.lot_count %></h4>
         </div>
         <div class="booyah-box col-9">
           <%= week_calendar number_of_weeks: 1 do |date| %>
@@ -27,14 +28,15 @@
 <div class="booyah-box col-12">
   <div class="booyah-box col-12">
     <div><h4 class="left">TASKS: </h4><%= link_to 'Add Task', new_admin_task_path, class: 'nav-link' %></div>
-      <div class="booyah-box col-10 offset-1">
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Layout</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
+      
+      <% @tasks.each do |task| %>
+      <div class="card col-6-sm col-2-md" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= task.title %></h5>
+          <p class="card-text"><%= task.description %></p>
         </div>
       </div>
+      <% end %>
     <br>
   </div>
   <div class="booyah-box col-12">

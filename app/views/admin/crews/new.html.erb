@@ -8,5 +8,10 @@
     <%= f.submit "Add the crew" %>
     <br />
     <br />
+    <ul>
+      <% @crew.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   <% end %>
 </div>

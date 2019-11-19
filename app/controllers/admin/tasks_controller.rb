@@ -1,11 +1,16 @@
 class Admin::TasksController < ApplicationController
+  before_action :authenticate_user!
   def new
     @task = Task.new
   end
 
   def create
-    @task = Task.create(task_params)
-    redirect_to root_path
+    @task = current_user.tasks.create(task_params)
+    if @task.valid?
+      redirect_to schedules_path(@task)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

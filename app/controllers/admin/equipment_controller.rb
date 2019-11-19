@@ -4,7 +4,7 @@ class Admin::EquipmentController < ApplicationController
   end
 
   def create
-    @equipment = Equipment.create(equipment_params)
+    @equipment = current_user.equipment.create(equipment_params)
     redirect_to root_path
   end
 

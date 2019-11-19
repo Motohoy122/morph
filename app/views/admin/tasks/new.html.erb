@@ -6,6 +6,13 @@
     <%= f.input :description %>
     <br>
     <%= f.submit "Add the Task" %>
+    <% if @task.errors.any? %>
+    <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
     <br />
     <br />
   <% end %>

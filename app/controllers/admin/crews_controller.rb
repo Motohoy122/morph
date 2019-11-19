@@ -4,8 +4,12 @@ class Admin::CrewsController < ApplicationController
   end
 
   def create
-    @crew = Crew.create(crew_params)
-    redirect_to root_path
+    @crew = current_user.crews.create(crew_params)
+    if @crew.valid?
+      redirect_to schedules_path(@task)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
