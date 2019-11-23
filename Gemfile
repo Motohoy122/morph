@@ -83,3 +83,5 @@ source 'https://rails-assets.org' do
 end
 
 gem "simple_calendar", "~> 2.0"
+
+gem 'jquery-ui-rails'

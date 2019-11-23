@@ -1,5 +1,10 @@
 @import "bootstrap";
 
+.navbar-light .navbar-brand{
+  color: white;
+  font-weight: 600;
+}
+
 .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -11,4 +16,62 @@
 
 .clr {
   clear: both;
+}
+
+.jumbotron {
+  background: image_url('hero.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.jumbotron h1 {
+  font-weight: 600;
+}
+
+.jumbotron h2 {
+  font-weight: 500;
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+
+
+}
+
+.cards {
+   vertical-align: middle;
+
+}
+
+.cards img {
+  height: auto;
+  width: 500px;
+  margin: 0 auto;
+  padding-bottom: 8px;
+}
+
+.home-image img{
+  height: auto;
+  width: 300px;
+}
+
+#footer {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  background-color: #292b2c !important;
+  color: white;
+  font-family: "Helvetica Neue", Helvetica;
+  padding: 10px 0px;
+  margin-top: 30px;
+  font-weight: 100;
 }

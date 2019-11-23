@@ -1,3 +1,18 @@
+<script>
+  $(function() {
+    $('.tasks').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
+</script>
+
 <br />
 
 <div class="booyah-box col-12">
@@ -26,17 +41,18 @@
 </div>
 <br>
 <div class="booyah-box col-12">
+  
   <div class="booyah-box col-12">
     <div><h4 class="left">TASKS: </h4><%= link_to 'Add Task', new_admin_task_path, class: 'nav-link' %></div>
-      
+      <ul class="tasks">
       <% @tasks.each do |task| %>
-      <div class="card col-6-sm col-2-md" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= task.title %></h5>
-          <p class="card-text"><%= task.description %></p>
-        </div>
-      </div>
+        <li id="drag" data-item-id="<%= schedule_task_path(task) %>">
+          <b><%= task.title %></b>
+          -
+          <%= task.description %>
+        </li>
       <% end %>
+    </ul>
     <br>
   </div>
   <div class="booyah-box col-12">

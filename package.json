@@ -2,6 +2,6 @@
   "name": "morph",
   "private": true,
   "dependencies": {
-    "interactjs": "^1.7.0"
+    "interactjs": "^1.7.2"
   }
 }

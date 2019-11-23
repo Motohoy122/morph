@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     resources :equipment, only: [:new, :create]
     resources :my_groups, only: [:new, :create]
   end
+  namespace :schedule do
+    resources :tasks, only: [:update]
+  end
 end

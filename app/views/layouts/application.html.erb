@@ -14,7 +14,7 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Morph</a>
+      <a><%= link_to 'Morph', root_path, class: 'navbar-brand' %></a>
 
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav mr-auto mt-2 mt-md-0">
@@ -57,5 +57,38 @@
     <% end %>
 
     <%= yield %>
+
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-3">
+            <b>Companies</b>
+            <br />
+            
+          </div>
+          <div class="col-12 col-sm-3">
+            <b>About</b>
+            <br />
+            <%= link_to 'Team', '#' %>
+            <br />
+            <%= link_to 'Careers', '#' %>
+            <br />
+            <%= link_to 'Privacy Policy', '#' %>
+          </div>
+          <div class="col-12 col-sm-3">
+            <b>Contact</b>
+            <br />
+            alexhoyer22@gmail.com
+            <br />
+            One Kendall Square
+            <br />
+            Cambridge MA, 02113
+          </div>
+          <div class="col-12 col-sm-3">
+            <b>Social</b>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
