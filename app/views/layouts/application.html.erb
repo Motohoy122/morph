@@ -39,6 +39,9 @@
             </li>
           <% else %>
             <li class="nav-item">
+              <%= link_to 'New Company', new_organization_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
               <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">

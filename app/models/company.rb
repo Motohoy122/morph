@@ -1,10 +1,5 @@
-class User < ApplicationRecord
-  has_many :projects
-  has_many :tasks
-  has_many :equipment
-  has_many :crews
-  has_many :my_groups
-  belongs_to :organization
+class Company < ApplicationRecord
+  
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
