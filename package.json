@@ -2,6 +2,8 @@
   "name": "morph",
   "private": true,
   "dependencies": {
+    "@fullcalendar/resource-timeline": "^4.3.0",
     "interactjs": "^1.7.2"
-  }
+  },
+  "devDependencies": {}
 }

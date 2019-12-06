@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id="noscroll">
     <nav class="navbar navbar-toggleable-md navbar-light bg-inverse">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,9 +24,6 @@
           <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to 'My Dashboard', dashboard_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">
-            <%= link_to 'See All Projects', projects_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
             <%= link_to 'Schedule', schedules_path, class: 'nav-link' %>
@@ -93,5 +90,17 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      // 1. Get a target element that you want to persist scrolling for (such as a modal/lightbox/flyout/nav).
+      // Specifically, the target element is the one we would like to allow scroll on (NOT a parent of that element).
+      // This is also the element to apply the CSS '-webkit-overflow-scrolling: touch;' if desired.
+      const targetElement = document.querySelector("#noscroll");
+       
+      // 2. ...in some event handler after showing the target element...disable body scroll
+      bodyScrollLock.disableBodyScroll(targetElement);
+       
+      // 3. ...in some event handler after hiding the target element...
+      bodyScrollLock.enableBodyScroll(targetElement);
+    </script>
   </body>
 </html>

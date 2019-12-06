@@ -13,7 +13,12 @@
   });
 </script>
 
+
+
+
 <br />
+
+
 
 <div class="booyah-box col-12">
   <h1 class="text-center">SCHEDULE</h1>
@@ -28,15 +33,11 @@
           <h4 class="text-center">Lot Count: <%= schedule.lot_count %></h4>
         </div>
         <div class="booyah-box col-9">
-          <%= week_calendar number_of_weeks: 1 do |date| %>
-            <%= date %>
-          <% end %>
+          <div id="calendar"></div>
         </div>
       </div>
       <br>
     <% end %>
-
-  
   
 </div>
 <br>
@@ -73,3 +74,9 @@
   <h4 class="left">CONFLICTS:</h4>
   <br>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#calendar").fullCalendar();
+  });
+</script>

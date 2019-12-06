@@ -85,3 +85,10 @@ end
 gem "simple_calendar", "~> 2.0"
 
 gem 'jquery-ui-rails'
+
+gem 'momentjs-rails'
+gem 'fullcalendar'
+
+gem 'rest-client', '~> 1.8'
+
+gem 'open-weather'

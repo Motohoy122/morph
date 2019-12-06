@@ -1,5 +1,81 @@
+
 <div class="booyah-box col-10 offset-1">
-  <h2 class="text-center"><%= @project.job_name %></h2>
   <br>
-  <%= @project.user_id %>
+  <h2 class="text-center"><%= @project.builder %> - <%= @project.job_name %>
+  <br>
+  <br>
+  <div class="row text-left">
+      <div class="col-6">
+        <h6>Address: <%= @project.address %></h6>
+        <h6>City: <%= @project.city %></h6>
+        <h6>State: <%= @project.state %></h6>
+        <h6>Zip: <%= @project.zip %></h6>
+        <h6>Lots: <%= @project.lots %></h6>
+      </div>
+      <div class="col-6">
+        <h6>Builder Super: <%= @project.supervisor %></h6>
+        <h6>Email: <%= @project.email %></h6>
+        <h6>Phone: <%= @project.phone %></h6>
+        <h6>Our Super: <%= @project.our_super %></h6>
+      </div>
+  </div>
+  <div class="row text-center">
+    <div class="row">
+      <h4>Weather</h4>
+    </div>
+    
+    <div class="row">
+      <div class="col-6 text-center">
+        <h6 id="temperature">0.0</h6>
+      </div>
+      <div class="col-6 text-center">
+        <h6 id="weather">Nil</h6>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+  const zip1 = '95811'
+
+  function getTemp(zip, callback) {
+    const path = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zip + ',us&appid=34ea9f2f4846a435ad387c86d9da5ba9'
+    fetch(path).then((res) => {
+      return res.json()
+    }).then((json) => {
+      console.log(json)
+      console.log(json.main.temp)
+      callback(json)
+    }).catch((err) => {
+      console.log(err.message)
+    })
+    
+  }
+
+  function getWeather(zip, callback) {
+    const path = 'https://api.openweathermap.org/data/2.5/weather?zip=' + zip + ',us&appid=34ea9f2f4846a435ad387c86d9da5ba9'
+    fetch(path).then((res) => {
+      return res.json()
+    }).then((json) => {
+      console.log(json)
+      console.log(json.weather[0].description)
+      callback(json)
+    }).catch((err) => {
+      console.log(err.message)
+    })
+    
+  }
+
+      const temperatureDisplay = document.getElementById('temperature')
+      const weatherDisplay = document.getElementById('weather')
+      
+      const apikey = '34ea9f2f4846a435ad387c86d9da5ba9'
+      getTemp(zip1, (json) => {
+        temperatureDisplay.innerHTML = Math.floor(((json.main.temp - 273.15) * (9/5)) +32);
+      })
+
+      getWeather(zip1, (json) => {
+        weatherDisplay.innerHTML = json.weather[0].description
+      })
+
+</script>

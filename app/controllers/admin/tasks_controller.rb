@@ -5,7 +5,7 @@ class Admin::TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.tasks.create(task_params)
+    @task = Task.create(task_params)
     if @task.valid?
       redirect_to schedules_path(@task)
     else

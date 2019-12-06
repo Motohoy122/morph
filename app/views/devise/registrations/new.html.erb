@@ -1,3 +1,5 @@
+<br />
+<div class="booyah-box col-10 offset-1">
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -20,10 +22,20 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <br>
+  <div class="field">
+    <% options = options_from_collection_for_select(UserType.all, 'id', 'user_type_name', 1) %>
+    <%= f.select :user_type, options, :input_html => { class: "form-control" } %>
+    <% options = options_from_collection_for_select(Organization.all, 'id', 'company_name', 1) %>
+    <%= f.select :company_id, options, :input_html => { class: "form-control" } %>
+  </div>
 
+
+  <br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>

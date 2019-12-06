@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_215717) do
+ActiveRecord::Schema.define(version: 2019_12_05_015742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2019_11_23_215717) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_equipment_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "my_groups", force: :cascade do |t|
@@ -62,6 +70,16 @@ ActiveRecord::Schema.define(version: 2019_11_23_215717) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "builder"
+    t.integer "lots"
+    t.string "supervisor"
+    t.string "our_super"
+    t.string "phone"
+    t.string "email"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -89,6 +107,13 @@ ActiveRecord::Schema.define(version: 2019_11_23_215717) do
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
+  create_table "user_types", force: :cascade do |t|
+    t.string "user_type_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_type_name"], name: "index_user_types_on_user_type_name", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -97,6 +122,8 @@ ActiveRecord::Schema.define(version: 2019_11_23_215717) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "company_id"
+    t.integer "user_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

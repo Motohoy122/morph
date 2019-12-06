@@ -21,6 +21,6 @@ class Admin::ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:job_name)
+    params.require(:project).permit(:job_name,:builder,:lots,:supervisor,:our_super,:phone,:email,:address,:city,:state,:zip)
   end
 end

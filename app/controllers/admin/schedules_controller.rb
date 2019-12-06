@@ -8,7 +8,7 @@ class Admin::SchedulesController < ApplicationController
   def create
     @schedule = Schedule.create(schedule_params)
     if @schedule.valid?
-      redirect_to admin_schedule_path(@schedule)
+      redirect_to schedules_path
     else
       render :new, status: :unprocessable_entity
     end

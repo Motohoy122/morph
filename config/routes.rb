@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+  resources :user_types, only: [:new, :create, :show]
   devise_for :companies
   resources :organizations, only: [:new, :create, :show]
   devise_for :users

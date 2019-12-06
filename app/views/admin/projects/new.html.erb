@@ -2,10 +2,34 @@
 <div class="booyah-box col-10 offset-1">
   <h1>Add a new project</h1>
   <%= simple_form_for @project, url: admin_projects_path do |f| %>
-    <%= f.input :job_name %>
+    <div class="row">
+      <div class="col-6">
+        <%= f.input :builder %>
+        <%= f.input :job_name %>
+        <%= f.input :our_super %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :state %>
+      </div>
+      <div class="col-6">
+        <%= f.input :zip %>
+        <%= f.input :supervisor %>
+        <%= f.input :email %>
+        <%= f.input :phone %>
+        <%= f.input :lots %>
+      </div>
+    </div>
+    
     <br />
     <%= f.submit "Create", class: 'btn btn-primary' %>
     <br />
+    <% if @project.errors.any? %>
+    <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
   <% end %>
   <br>
 </div>
