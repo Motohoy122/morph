@@ -93,8 +93,10 @@ GEM
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.11.1)
-    fullcalendar (3.9.0)
-      momentjs-rails (~> 2.20.1)
+    fullcalendar-rails (3.9.0.0)
+      jquery-rails (>= 4.0.5, < 5.0.0)
+      jquery-ui-rails (>= 5.0.2)
+      momentjs-rails (>= 2.9.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -281,7 +283,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  fullcalendar
+  fullcalendar-rails
   jbuilder (~> 2.5)
   jquery-rails
   jquery-ui-rails

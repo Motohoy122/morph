@@ -13,24 +13,9 @@
   });
 </script>
 
-<script type="text/javascript">
-  import { Calendar } from '@fullcalendar/core';
-  import dayGridPlugin from '@fullcalendar/daygrid';
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
-
-    var calendar = new Calendar(calendarEl, {
-      plugins: [ dayGridPlugin ]
-    });
-
-    calendar.render();
-  });
-</script>
-
 
 <br />
-
+<div id="calendar"></div>
 
 
 <div class="booyah-box col-12">
@@ -46,7 +31,7 @@
           <h4 class="text-center">Lot Count: <%= schedule.lot_count %></h4>
         </div>
         <div class="booyah-box col-9">
-          <div id="calendar"></div>
+          
         </div>
       </div>
       <br>
