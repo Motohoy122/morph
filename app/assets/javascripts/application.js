@@ -24,6 +24,7 @@
 //= require fullcalendar
 //= require fullcalendar/locale-all
 
-$('#calendar').fullCalendar({
+$('#event_calendar').fullCalendar({
   events: '/events.json'
 });
+
