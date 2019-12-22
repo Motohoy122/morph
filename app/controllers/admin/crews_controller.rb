@@ -25,10 +25,10 @@ class Admin::CrewsController < ApplicationController
     @crew = Crew.find_by_id(params[:id])
     return render_not_found if @crew.blank?
 
-    @crew.update_attributes(crew_params)
+    current_crew.update_attributes(crew_params)
 
     if @crew.valid?
-      redirect_to root_path
+      render plain: 'updated!'
     else
       return render :edit, status: :unprocessable_entity
     end
@@ -42,8 +42,11 @@ class Admin::CrewsController < ApplicationController
   end
 
   private
+  def current_crew
+    @current_crew ||= Crew.find(params[:id])
+  end 
 
   def crew_params
-    params.require(:crew).permit(:title, :description)
+    params.require(:crew).permit(:title, :description, :row_order_position)
   end
 end

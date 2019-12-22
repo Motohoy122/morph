@@ -11,6 +11,32 @@
       }
     });
   });
+
+  $(function() {
+    $('.crews').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
+
+  $(function() {
+    $('.equipment').sortable({
+      update: function( event, ui ) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { lesson: { row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
 </script>
 
 
@@ -56,22 +82,42 @@
   </div>
   <div class="booyah-box col-12">
     <div><h4 class="left">CREWS: </h4><%= link_to 'Add Crew', new_admin_crew_path, class: 'nav-link' %></div>
+      <ul class="crews">
+        <% @crews.each do |crew| %>
+
+          <li id="drag" >
+            <b><%= crew.title %></b>
+            -
+            <%= crew.description %>
+          </li>
+        <% end %>
+      </ul>
     <br>
   </div>
   <div class="booyah-box col-12">
     <div><h4 class="left">Equipment: </h4><%= link_to 'Add Equipment', new_admin_equipment_path, class: 'nav-link' %></div>
+    <ul class="equipment">
+        <% @equipment.each do |equipment| %>
+
+          <li id="drag"">
+            <b><%= equipment.title %></b>
+            -
+            <%= equipment.description %>
+          </li>
+        <% end %>
+      </ul>
     <br>
   </div>
-  <div class="booyah-box col-12">
+  <!-- <div class="booyah-box col-12">
     <h4 class="left">MY GROUPS:</h4>
     <br>
-  </div>
+  </div> -->
 </div>
 <br>
-<div class="booyah-box col-12">
+<!-- <div class="booyah-box col-12">
   <h4 class="left">CONFLICTS:</h4>
   <br>
-</div>
+</div> -->
 
 <script type="text/javascript">
   $(document).ready(function() {

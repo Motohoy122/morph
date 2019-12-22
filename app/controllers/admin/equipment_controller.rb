@@ -25,10 +25,10 @@ class Admin::EquipmentController < ApplicationController
     @equipment = Equipment.find_by_id(params[:id])
     return render_not_found if @equipment.blank?
 
-    @equipment.update_attributes(equipment_params)
+    current_equipment.update_attributes(equipment_params)
 
     if @equipment.valid?
-      redirect_to root_path
+      render plain: 'updated!'
     else
       return render :edit, status: :unprocessable_entity
     end
@@ -42,8 +42,11 @@ class Admin::EquipmentController < ApplicationController
   end
 
   private
+  def current_equipment
+    @current_equipment ||= Crew.find(params[:id])
+  end 
 
   def equipment_params
-    params.require(:equipment).permit(:title, :description)
+    params.require(:equipment).permit(:title, :description, :row_order_position)
   end
 end
