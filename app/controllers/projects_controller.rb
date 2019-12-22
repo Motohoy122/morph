@@ -4,9 +4,13 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
-    
+    @project = Project.find_by_id(params[:id])
+    if @project.blank?
+      render plain: 'Not Found :(', status: :not_found
+    end
   end
+
+
 
   def self.initialize
       @api_key = "34ea9f2f4846a435ad387c86d9da5ba9"

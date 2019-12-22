@@ -1,0 +1,21 @@
+<%= simple_form_for @equipment do |f| %>
+  <div class="row">
+      <div class="col-6">
+        <%= f.input :builder %>
+        <%= f.input :job_name %>
+        <%= f.input :our_super %>
+        <%= f.input :address %>
+        <%= f.input :city %>
+        <%= f.input :state %>
+      </div>
+      <div class="col-6">
+        <%= f.input :zip %>
+        <%= f.input :supervisor %>
+        <%= f.input :email %>
+        <%= f.input :phone %>
+        <%= f.input :lots %>
+      </div>
+    </div>
+
+    <%= f.submit %>
+<% end %>

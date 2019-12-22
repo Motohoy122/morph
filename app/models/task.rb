@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :organization
+  belongs_to :user
 
   validates :title, presence: true
 end

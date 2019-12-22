@@ -1,4 +1,6 @@
 class Admin::MyGroupsController < ApplicationController
+  before_action :authenticate_user!
+  
   def new
     @mygroup = MyGroup.new
   end

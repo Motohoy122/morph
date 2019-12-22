@@ -5,7 +5,7 @@ class Admin::TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
+    @task = current_user.tasks.create(task_params)
     if @task.valid?
       redirect_to schedules_path(@task)
     else
@@ -13,9 +13,31 @@ class Admin::TasksController < ApplicationController
     end
   end
 
+  def edit
+    @task = Task.find_by_id(params[:id])
+    if @task.blank?
+      render plain: 'Not Found :(', status: :not_found
+    end
+  end
+
   def update
+    @task = Task.find_by_id(params[:id])
+    return render_not_found if @task.blank?
+
     current_task.update_attributes(task_params)
-    render plain: 'updated!'
+
+    if @task.valid?
+      render plain: 'updated!'
+    else
+      return render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @task = Task.find_by_id(params[:id])
+    return render_not_found if @task.blank?
+    @task.destroy
+    redirect_to root_path
   end
 
   private

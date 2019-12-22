@@ -14,7 +14,6 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require calendar
 //= require popper
 //= require tether
 //= require bootstrap-sprockets
@@ -24,7 +23,51 @@
 //= require fullcalendar
 //= require fullcalendar/locale-all
 
-$('#event_calendar').fullCalendar({
-  events: '/events.json'
-});
 
+// $('#calendar').fullCalendar({
+    
+// });
+
+function eventCalendar() {
+  return $('#event_calendar').fullCalendar({ 
+    events: '/events.json'
+  });
+};
+function clearCalendar() {
+  $('#event_calendar').fullCalendar('delete'); // In case delete doesn't work.
+  $('#event_calendar').html('');
+};
+$(document).on('turbolinks:load', eventCalendar);
+$(document).on('turbolinks:before-cache', clearCalendar)
+
+// var intialize_calendar;
+// initialize_calendar = function(){
+// $('.calendar').each(function(){ 
+//     var calendar = $(this);
+//     calendar.fullcalendar({
+//       header: {
+//         left: 'prev,next today',
+//         center: 'title',
+//         right: 'month,agendaWeek,agendaDay'
+//       },
+//       selectable: true,
+//       selectHelper: true,
+//       editable: true,
+//       eventLimit: true
+//     });
+//   })
+// };
+// $(document).on('turbolinks:load', initialize_calendar);
+
+// ,
+//     events: {
+//         url: '/events.json',
+//         error: function() 
+//         {
+//             alert("error");
+//          },
+//             success: function()
+//          {
+//             console.log("successfully loaded");
+//          }
+//        }

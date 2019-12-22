@@ -2,36 +2,23 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
 
-  describe "projects#new action" do
-    it "should require the user is an admin user and logged in" do
-
-    end
-
-    it "should successfully show the new form to create a new project" do
-
+  describe "projects#index action" do
+    it "should successfully show the page" do
+      get :index
+      expect(response).to have_http_status(:success)
     end
   end
 
-  describe "projects#create action" do
-
-    it "should successfully create a new project in our database" do
-
+  describe "projects#show action" do
+    it "should successfully show the page if the project is found" do
+      project = FactoryBot.create(:project)
+      get :show, params: { id: project.id }
+      expect(response).to have_http_status(:success)
     end
 
-    it "should properly deal with validation errors" do
-
-    end
-  end
-
-  describe "projects#edit action" do
-   it "should require the user is an admin user and logged in" do
-
-    end 
-  end
-
-  describe "projects#update action" do
-    it "should allow project infornmation to be updated" do
-
+    it "should return a 404 error if the project is not found" do
+      get :show, params: { id: 'TACOCAT' }
+      expect(response).to have_http_status(:not_found)
     end
   end
 end

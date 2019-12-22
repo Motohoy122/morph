@@ -2,8 +2,6 @@
   "name": "morph",
   "private": true,
   "dependencies": {
-    "@fullcalendar/core": "^4.3.1",
-    "@fullcalendar/daygrid": "^4.3.0",
     "@fullcalendar/resource-timeline": "^4.3.0",
     "interactjs": "^1.7.2"
   },
