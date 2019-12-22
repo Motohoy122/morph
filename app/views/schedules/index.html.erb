@@ -46,7 +46,7 @@
 <div class="booyah-box col-12">
   <h1 class="text-center">SCHEDULE</h1>
   <hr />    
-  <div id="calendar"></div>
+  <!-- <div id="calendar"></div> -->
     <% @schedules.each do |schedule| %>
       <div class="row">
         <div class="booyah-box col-3 left" id="projectSchedules">
@@ -57,7 +57,9 @@
           <h7 class="text-left"><b>Lot Count:</b> <%= schedule.lot_count %></h7>
         </div>
         <div class="booyah-box col-9">
-          
+          <%= week_calendar number_of_weeks: 1 do |date| %>
+            <%= date %>
+          <% end %>
         </div>
       </div>
       <br>
