@@ -45,7 +45,8 @@
 
 <div class="booyah-box col-12">
   <h1 class="text-center">SCHEDULE</h1>
-  <hr />    
+  <hr />   
+  <h8><%= link_to 'Add Schedule', new_admin_schedule_path, class: 'nav-link' %></h8> 
   <!-- <div id="calendar"></div> -->
     <% @schedules.each do |schedule| %>
       <div class="row">
