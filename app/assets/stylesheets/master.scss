@@ -5,6 +5,10 @@
   font-weight: 600;
 }
 
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
 .booyah-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -12,8 +16,15 @@
   background: #fff;
   border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding-bottom: 10px;
 }
 
+.booyah-box h5 label{
+  padding-bottom: 0px;
+  margin-bottom: 0px; 
+  vertical-align: bottom;
+  padding-top: 7px;
+}
 .clr {
   clear: both;
 }
@@ -66,12 +77,36 @@
 
 html, body {
   width: 100%;
-  height: 100%;
+  height: auto;
   margin: 0px;
   padding: 0px;
   
 }  
 
+#title {
+  padding-top: 10px;
+  color: #0275d8;
+}
+
+.project-info h6 {
+  padding-left: 20px;
+}
+
+#weather-heading {
+  margin: 0 auto;
+}
+
+#tempSymb {
+  padding-left: 3px;
+}
+
+#calendarEvents h4 {
+  padding-top: 10px;
+}
+
+#projectSchedules h3 {
+  padding-top: 8px;
+}
 
 #footer {
   position: relative;

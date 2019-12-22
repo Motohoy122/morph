@@ -2,38 +2,43 @@
 
 <div class="booyah-box col-10 offset-1">
   <br>
-  <h2 class="text-center"><%= @project.builder %> - <%= @project.job_name %>
+  <h2 class="text-center project-info"><%= @project.builder %> - <%= @project.job_name %>
   <br>
   <br>
   <div class="row text-left">
       <div class="col-6">
-        <h6>Address: <%= @project.address %></h6>
-        <h6>City: <%= @project.city %></h6>
-        <h6>State: <%= @project.state %></h6>
-        <h6>Zip: <%= @project.zip %></h6>
-        <h6>Lots: <%= @project.lots %></h6>
+        <h6><b>Address:</b> <%= @project.address %></h6>
+        <h6><b>City:</b> <%= @project.city %></h6>
+        <h6><b>State:</b> <%= @project.state %></h6>
+        <h6><b>Zip:</b> <%= @project.zip %></h6>
+        <h6><b>Lots:</b> <%= @project.lots %></h6>
       </div>
       <div class="col-6">
-        <h6>Builder Super: <%= @project.supervisor %></h6>
-        <h6>Email: <%= @project.email %></h6>
-        <h6>Phone: <%= @project.phone %></h6>
-        <h6>Our Super: <%= @project.our_super %></h6>
+        <h6><b>Builder Super:</b> <%= @project.supervisor %></h6>
+        <h6><b>Email:</b> <%= @project.email %></h6>
+        <h6><b>Phone:</b> <%= @project.phone %></h6>
+        <h6><b>Our Super:</b> <%= @project.our_super %></h6>
       </div>
   </div>
-  <div class="row text-center">
-    <div class="row">
-      <h4>Weather</h4>
+  <br class="clear">
+  
+    <div class="row col-12" id="weather-heading">
+      <h4 style="text-align:center">Weather</h4>
     </div>
-    
     <div class="row">
-      <div class="col-6 text-center">
-        <h6 id="temperature">0.0</h6>
+
+      <div class="col-6">
+        <h6 style="text-align:left; float:left; float:center;"><b>Temp: </b></h6>
+        <h6 style="text-align:left; float:left;" id="temperature">0.0</h6>
+        <h6 style="text-align:left; float:left;" id="tempSymb">°F</h6>
       </div>
-      <div class="col-6 text-center">
-        <h6 id="weather">Nil</h6>
+      <div class="col-6">
+        <h6 style="text-align:left; float:left;"><b>Weather: </b></h6>
+        <h6 style="text-align:left; float:left;" id="weather">Nil</h6>
       </div>
+
     </div>
-  </div>
+
 </div>
 
 <script type="text/javascript">

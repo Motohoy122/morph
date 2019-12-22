@@ -5,21 +5,21 @@
   <br>
   <% current_user.projects.each do |project| %>
   <div class="booyah-box col-10 offset-1">
-    <h3 class="text-center">
+    <h3 class="text-center" id="title">
       <%= project.builder %> - <%= project.job_name %>
     </h3>
     <br>
-    <div class="row">
+    <div class="row project-info">
       <div class="col-6">
-        <h6>Address: <%= project.address %></h6>
-        <h6>City: <%= project.city %></h6>
-        <h6>State: <%= project.state %></h6>
-        <h6>Zip: <%= project.zip %></h6>
+        <h6><b>Address:</b> <%= project.address %></h6>
+        <h6><b>City:</b> <%= project.city %></h6>
+        <h6><b>State:</b> <%= project.state %></h6>
+        <h6><b>Zip:</b> <%= project.zip %></h6>
       </div>
       <div class="col-6">
-        <h6>Builder Super: <%= project.supervisor %></h6>
-        <h6>Phone: <%= project.phone %></h6>
-        <h6>Lots: <%= project.lots %></h6>
+        <h6><b>Builder Super:</b> <%= project.supervisor %>
+        <h6><b>Phone:</b> <%= project.phone %></h6>
+        <h6><b>Lots:</b> <%= project.lots %></h6>
       </div>
     </div>
     <br>
